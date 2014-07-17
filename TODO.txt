@@ -1,0 +1,52 @@
+
+
+BACKEND
+
+-SIGNUP
+-come to a landing page, there will be a signup/signin button
+-OAuth (emily)
+- signed in user will be redirected to their profile/dashboard
+- user signing in for the FIRST TIME will be prompted to check in somewhere
+
+PAGES TO PUT IN NAVBAR when signed in
+ONE
+-personal dashboard/profile page that displays your connected accounts and friends with a link to the friends edit page. also has your address details.
+TWO
+-need a friends edit page, separate for twitter and facebook
+-(you will be able to follow up to 10 people, distributed between twitter & facebook)
+- also signout option
+THREE
+-"recent friend activity" page with all friend history
+
+
+
+
+GEOLOCATING DETAILS
+-you will enter an address so the app knows where you are. you can always change this.
+- "Your location is currently set to ${address}. Click here to automatically update it"
+-also a text field to manually update it if you choose
+-you should also be able to click a button to have the app detect your location
+
+
+
+
+FRONTEND
+
+
+
+
+
+APIS
+-twilio
+-maybe google maps
+-facebook
+-twitter
+
+
+
+
+
+FURTHER IDEAS
+-come up with a cooler/better way to display and integrate the people you're following on different platforms
+- way to set different locations as your home bases
+
