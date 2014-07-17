@@ -35,7 +35,6 @@ FRONTEND
 
 
 
-
 APIS
 -twilio
 -maybe google maps
@@ -49,4 +48,4 @@ APIS
 FURTHER IDEAS
 -come up with a cooler/better way to display and integrate the people you're following on different platforms
 - way to set different locations as your home bases
-
+-stats like where your friends have checked in the most
