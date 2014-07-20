@@ -15,5 +15,8 @@
 /log/*.log
 /tmp
 
+
+
+#RE ADD THIS TO THE GITIGNORE BEFORE LAUNCHING. UNCOMMENT OUT THE LINE TWO DOWN FROM THIS
 # Ignore application configuration
-/config/application.yml
+#/config/application.yml
