@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record -> This is in the development/test group below
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,5 +39,12 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'figaro'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem "database_cleaner"
+  gem 'pry'
+  gem 'sqlite3'
+end
 
 
