@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+
+#RE ADD THIS TO THE GITIGNORE BEFORE LAUNCHING. UNCOMMENT OUT THE LINE TWO DOWN FROM THIS
+# Ignore application configuration
+#/config/application.yml
