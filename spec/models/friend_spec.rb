@@ -1,18 +1,22 @@
 require_relative '../rails_helper'
 
 describe Friend do
-  decribe 'description here' do
-    it 'passes a complete test' do
-      expect(1).to eq(1)
-  # test "the truth" do
-  #   assert true
-  # end
-
-  # friend has a name
-
-  # friend has multiple users
-
-  # friend has friendships
+  describe 'Model' do
+    it 'has a name' do
+      expect(@bob.name).to eq("Bob Testman")
     end
+
+    it 'has a location' do
+      expect(@bob.location).to eq("Burger King")
+    end
+
+    it 'can belong to multiple users' do
+      expect(@florp.friends).to include(@bob)
+      expect(@beef.friends).to include(@bob)
+    end
+
+    it 'has many friendships' do
+      expect(@bob.friendships.size).to eq(2)
+    end  
   end
 end

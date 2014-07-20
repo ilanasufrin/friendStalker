@@ -17,7 +17,7 @@
 RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
-=begin
+
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
   # `:focus` metadata. When nothing is tagged with `:focus`, all examples
@@ -38,7 +38,7 @@ RSpec.configure do |config|
   # Print the 10 slowest examples and example groups at the
   # end of the spec run, to help surface which specs are running
   # particularly slow.
-  config.profile_examples = 10
+  # config.profile_examples = 10
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
@@ -74,5 +74,61 @@ RSpec.configure do |config|
     # a real object. This is generally recommended.
     mocks.verify_partial_doubles = true
   end
-=end
+
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
+
+  config.before(:each) do
+    @bob = Friend.create(
+      name: "Bob Testman", 
+      location: "Burger King", 
+      latitude: 123, 
+      longitude: 456, 
+      facebook_id: 352,
+      twitter_id: 2354236)
+
+    @zambezia = Friend.create(
+      name: "Zambezia Holgrauf", 
+      location: "Hamburger County", 
+      latitude: 777, 
+      longitude: 999, 
+      facebook_id: 214,
+      twitter_id: 7539)
+
+    @stamos = Friend.create(
+      name: "John Stamos", 
+      location: "Full House", 
+      latitude: 17542, 
+      longitude: 247, 
+      facebook_id: 413,
+      twitter_id: 253)
+
+    @florp = User.create(
+      name: "Florp the Alien",
+      location: "Florptown Stadium",
+      latitude: 1212121,
+      longitude: 54545454,
+      facebook_id: 11111,
+      twitter_id: 22222,
+      phone: "131-444-0258"
+      )
+
+    @beef = User.create(
+      name: "Beef Chesterton",
+      location: "Pinkberry",
+      latitude: 987654321,
+      longitude: 123456789,
+      facebook_id: 987987987,
+      twitter_id: 358358358,
+      phone: "111-000-4442"
+      )
+
+    @friendship1 = Friendship.create(friend_id: 1, user_id: 1)
+    @friendship2 = Friendship.create(friend_id: 2, user_id: 1)
+    @friendship3 = Friendship.create(friend_id: 3, user_id: 1)
+    @friendship4 = Friendship.create(friend_id: 1, user_id: 2)
+    @friendship5 = Friendship.create(friend_id: 3, user_id: 2)
+  end
+
 end
