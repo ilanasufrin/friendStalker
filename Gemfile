@@ -15,6 +15,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'twitter'
 
 group :test, :development do
   gem "rspec-rails"
