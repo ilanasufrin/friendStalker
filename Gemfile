@@ -14,7 +14,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 group :test, :development do
