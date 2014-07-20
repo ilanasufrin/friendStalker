@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid]) || User.create_with_omniauth(auth_hash)
     session[:current_user] = @user
     session[:user_id] = @user.id
+    # binding.pry
     redirect_to @user
   end
 

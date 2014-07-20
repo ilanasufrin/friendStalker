@@ -3,12 +3,10 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
 
-  root 'users#show'
+  root 'users#index'
 
   resources :users
 
-  get '/auth/facebook'
-  get '/auth/facebook/callback', to: 'sessions#create'
   get '/auth/twitter'
   get '/auth/twitter/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
