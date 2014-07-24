@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  skip_before_action :authentication_required
+
+  def new
+  end
 
   def create
     @user = User.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid]) || User.create_with_omniauth(auth_hash)

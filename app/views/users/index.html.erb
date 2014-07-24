@@ -1,8 +1,8 @@
 <h1>findFriendsAround</h1>
 
 <br>
-<% unless session[:current_user] %>
-  <p><%= link_to 'Log In with Twitter', auth_twitter_path %></p>
-<% else %>
+<% if @current_user %>
   <%= link_to 'Log Out', logout_path %>
+<% else %>
+  <%= link_to 'Log in with Twitter', auth_twitter_path %>
 <% end %>
