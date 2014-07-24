@@ -2,14 +2,14 @@ Rails.application.routes.draw do
 
   get 'sessions/create'
   get 'sessions/destroy'
-
-  root 'users#index' # Main landing page
-
   resources :users
 
   get '/auth/twitter'
   get '/auth/twitter/callback', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
+  get '/login', to: 'users#index'
+  get '/logout', to: 'sessions#destroy'
+
+  root 'users#index'
 
   get '/recent', to: "users#recent"
 

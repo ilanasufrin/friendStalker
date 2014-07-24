@@ -81,7 +81,11 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
+<<<<<<< HEAD
     nokogiri (1.6.3.1)
+=======
+    nokogiri (1.6.3)
+>>>>>>> 6bd31cbca9a4b37e0d95fcfc635ed4659fe5064e
       mini_portile (= 0.6.0)
     oauth (0.4.7)
     omniauth (1.2.2)
@@ -119,6 +123,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+<<<<<<< HEAD
     rspec-core (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.3)
@@ -127,6 +132,16 @@ GEM
     rspec-mocks (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-rails (3.0.2)
+=======
+    rspec-core (3.0.2)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.2)
+      rspec-support (~> 3.0.0)
+    rspec-rails (3.0.1)
+>>>>>>> 6bd31cbca9a4b37e0d95fcfc635ed4659fe5064e
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -134,7 +149,11 @@ GEM
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
+<<<<<<< HEAD
     rspec-support (3.0.3)
+=======
+    rspec-support (3.0.2)
+>>>>>>> 6bd31cbca9a4b37e0d95fcfc635ed4659fe5064e
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -176,7 +195,11 @@ GEM
       simple_oauth (~> 0.2.0)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
+<<<<<<< HEAD
     uglifier (2.5.3)
+=======
+    uglifier (2.5.1)
+>>>>>>> 6bd31cbca9a4b37e0d95fcfc635ed4659fe5064e
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     xpath (2.0.0)
