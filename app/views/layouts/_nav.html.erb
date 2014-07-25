@@ -1,1 +1,7 @@
-<h3>Nav Bar Partial</h3>
+<% if @current_user %>
+  <%= link_to "Recent Friend Activity", recent_path %> | 
+  <%= link_to 'Friends Currently Following', friends_path %> | 
+  <%= link_to 'Log Out', logout_path %>  
+<% else %>
+  <%= link_to 'Log in with Twitter', auth_twitter_path %>
+<% end %>
