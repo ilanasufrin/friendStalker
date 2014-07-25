@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'sessions/create'
+  get 'sessions/destroy'
   resources :users
 
   get '/auth/twitter'
@@ -7,6 +10,10 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   root 'users#index'
+
+  get '/recent', to: "users#recent"
+
+  get '/friends', to: "users#friends"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
