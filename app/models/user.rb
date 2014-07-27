@@ -14,12 +14,12 @@ class User < ActiveRecord::Base
   # Ilana's number : "+14125088025"
   # Emily's number : "+18456416151"
 
-  def notify(to, body)
+  def notify(to, friend, location)
    account_sid = ENV['TWILIO_ACCOUNT_SID']
    auth_token = ENV['TWILIO_AUTH_TOKEN']
   @client = Twilio::REST::Client.new account_sid, auth_token
   message = @client.account.messages.create(
-    :body => "#{body}",
+    :body => "Your friend #{friend} just checked in at #{location}. -THE FRIENDSTALKER",
     :to => "#{to}",
     :from => "+14129064747")
   end

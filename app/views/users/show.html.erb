@@ -17,17 +17,17 @@ Set My Location (upon first user log-in)
   - if you are not following friend
   <% else %>
     Friend Location:
-    <% if friend.location == true %>
+    <% if friend.location %>
       - display location
       <%= friend.location %><br>
       - display 'follow' button
-      <%= "Follow" %><br>
+      <%= link_to "Follow!" %><br>
     - if friend does not have geo enabled
     <% else %>
       - display 'can't get location data' or something
       <%= "Location settings not enabled!" %><br>
       - display 'invite' button
-      <%= "Invite" %><br>
+      <%= link_to "Invite Friend!" %><br>
       <%= "https://twitter.com/intent/tweet?text=[friend_twitter_name]%20Join%20me%20on%20this%20cool%20site!%20www.coolsite.com" %>
       <% end %>
   <% end %>

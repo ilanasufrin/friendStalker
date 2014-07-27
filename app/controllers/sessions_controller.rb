@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       config.access_token        = auth_hash['credentials']['token']
       config.access_token_secret = auth_hash['credentials']['secret']
     end
-
+   # binding.pry
     geo_friends = client.friends.attrs[:users].select do |friend|
       friend[:status][:geo] != nil || friend[:status][:coordinates] != nil
     end

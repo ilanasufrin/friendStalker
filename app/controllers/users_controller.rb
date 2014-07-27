@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @friends = Friend.all
     @user = User.find(params[:id])
   end
+
   
   private
     def set_user
