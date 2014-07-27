@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, "q8mWPDTyMwcSfY2zmnHiN31rN", "gfSsz0pbXnTj6yUJU7BISKsCx7tmWGBmmoVFFe5iP0wAAhgjVI"
+  provider :twitter, "bkt74tfQkSuywhjtsYFE9sJIQ", "HQOZTkPvAgmgIYX45PEAn8cZbMC5xKfCysnwkG8bvB2UC9G9LP"
 end
