@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   # Emily's number : "+18456416151"
 
   def notify(to, body)
-    account_sid = 'AC4bb6fa4568260df672cbdb2389684bec'
-  auth_token = '97ea4ee4c5bfb09c0d3e2bfb36f0e4ef'
+   account_sid = ENV['TWILIO_ACCOUNT_SID']
+   auth_token = ENV['TWILIO_AUTH_TOKEN']
   @client = Twilio::REST::Client.new account_sid, auth_token
   message = @client.account.messages.create(
     :body => "#{body}",
