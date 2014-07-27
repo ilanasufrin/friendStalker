@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'geocoder'
+gem 'twilio-ruby'
 
 group :test, :development do
   gem "rspec-rails"
