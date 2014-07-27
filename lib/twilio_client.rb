@@ -1,4 +1,4 @@
-#class TwilioClient
+class TwilioClient
   TWILIO_NUMBER = "+14129064747" # OUR_PHONE_NUMBERS = ["+18602273095", "+14125088025"]
 
   # def self.send_alert(to:, url:)
@@ -29,8 +29,9 @@
 #read figaro docs to figure out how to hide these
 account_sid = 'AC4bb6fa4568260df672cbdb2389684bec'
 auth_token = '97ea4ee4c5bfb09c0d3e2bfb36f0e4ef'
+# @client = Twilio::REST::Client.new account_sid, auth_token
 @client = Twilio::REST::Client.new account_sid, auth_token
-message = @client.account.messages.create(:body => "Text text",
+message = @client.account.messages.create(:body => "Test text",
 :to => "+14125088025",
 :from => "+14129064747")
 #puts message.to
@@ -38,4 +39,4 @@ message = @client.account.messages.create(:body => "Text text",
 
 
 
-#end
+end
