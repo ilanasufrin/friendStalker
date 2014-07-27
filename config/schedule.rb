@@ -27,7 +27,7 @@
 #   rake "fs:check_friends"
 # end
 
-every 1.minutes do 
+every 300.minutes do 
   rake "fs:check_friends"
 end
 

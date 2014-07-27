@@ -3,38 +3,44 @@
 <h2>Dashboard / Profile Page</h2>
 Set My Location (upon first user log-in)
 
+
+
+
 <!-- - iterate through friends -->
 <% @friends.each do |friend| %><p><p>
-  Picture: <%= "friend.profile_pic" %><br>
+  Picture: <%= "friend.profile_pic" %>
   Name: <%= friend.name %><br>
 
   - if you are following friend: 
   <% if @user.friends.include?(friend) %><br>
-    Location: 
+    Location: <br>
     <%= friend.location %><br>
-    - display 'following' button
+    - display 'following' button<br>
     <%= "Following" %><br>
-  - if you are not following friend
+  - if you are not following friend<br>
   <% else %>
     Friend Location:
-    <% if friend.attrs[:geo_enabled] %>
+    <%# if friend.attrs.geo_enabled? %>
       - display location
-      <%= friend.attrs[:geo_enabled] %><br>
+      <%#= friend.attrs.geo_enabled? %><br>
       - display 'follow' button
       <%= link_to "Follow!" %><br>
-    - if friend does not have geo enabled
-    <% else %>
-      - display 'can't get location data' or something
+    - if friend does not have geo enabled<br>
+    <%# else %>
+      - display 'can't get location data' or something<br>
       <%= "Location settings not enabled!" %><br>
       - display 'invite' button
       <%= link_to "Invite Friend!" %><br>
       <%= "https://twitter.com/intent/tweet?text=[friend_twitter_name]%20Join%20me%20on%20this%20cool%20site!%20www.coolsite.com" %>
-      <% end %>
+      <%# end %>
   <% end %>
 <% end %>
 
 <!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
  client.friends.first.attrs[:geo_enabled] -->
+ 
+<!-- CAN ALSO USE THIS
+ client.friends.first.attrs.geo_enabled? -->
 
 <br>
 <p>
