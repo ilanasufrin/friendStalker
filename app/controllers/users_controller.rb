@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   skip_before_action :authentication_required, :only => [:index]
 
   def show
+    @friends = Friend.all
+    @user = User.find(params[:id])
   end
 
   

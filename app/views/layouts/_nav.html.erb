@@ -1,7 +1,7 @@
 <% if @current_user %>
-  <%= link_to "Recent Friend Activity", recent_path %> | 
-  <%= link_to 'Friends Currently Following', friends_path %> | 
+  <%= link_to "Friends", user_path %> | 
+  <%= link_to 'My Profile', edit_user_path %> | 
   <%= link_to 'Log Out', logout_path %>  
 <% else %>
-  <%= link_to 'Log in with Twitter', auth_twitter_path %>
+  <%= link_to 'Log In with Twitter', auth_twitter_path %>
 <% end %>
