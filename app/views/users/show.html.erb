@@ -4,37 +4,37 @@
 Set My Location (upon first user log-in)
 
 <!-- - iterate through friends -->
-<% @friends.each do |friend| %>
-- display friend picture
-<%= friend.profile_pic %>
-- display friend name
-<%= friend.name %>
+<% @friends.each do |friend| %><p><p>
+  Picture: <%= "friend.profile_pic" %><br>
+  Name: <%= friend.name %><br>
 
-- if you are following friend
-<% if user.friends.include?(friend) %>
-  - display location
-  <%= friend.location %>
-  - display 'following' button
-  <%= "Following" %>
-- if you are not following friend
-<% else %>
-  - if friend has geo enabled
-  <% if friend.geo == true %>
-    - display location
-    <%= friend.location %>
-    - display 'follow' button
-    <%= "Follow" %>
-  - if friend does not have geo enabled
+  - if you are following friend: 
+  <% if @user.friends.include?(friend) %><br>
+    Location: 
+    <%= friend.location %><br>
+    - display 'following' button
+    <%= "Following" %><br>
+  - if you are not following friend
   <% else %>
-    - display 'can't get location data' or something
-    <%= "Location settings not enabled!" %>
-    - display 'invite' button
-    <%= "Invite" %>
-    <%= https://twitter.com/intent/tweet?text=[friend_twitter_name]%20Join%20me%20on%20this%20cool%20site!%20www.coolsite.com %>
+    Friend Location:
+    <% if friend.location == true %>
+      - display location
+      <%= friend.location %><br>
+      - display 'follow' button
+      <%= "Follow" %><br>
+    - if friend does not have geo enabled
+    <% else %>
+      - display 'can't get location data' or something
+      <%= "Location settings not enabled!" %><br>
+      - display 'invite' button
+      <%= "Invite" %><br>
+      <%= "https://twitter.com/intent/tweet?text=[friend_twitter_name]%20Join%20me%20on%20this%20cool%20site!%20www.coolsite.com" %>
+      <% end %>
+  <% end %>
 <% end %>
 
 
 <br>
-
+<p>
 data needed
 - friend profile pic
