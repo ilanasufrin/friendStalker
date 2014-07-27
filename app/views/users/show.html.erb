@@ -3,5 +3,38 @@
 <h2>Dashboard / Profile Page</h2>
 Set My Location (upon first user log-in)
 
+<!-- - iterate through friends -->
+<% @friends.each do |friend| %>
+- display friend picture
+<%= friend.profile_pic %>
+- display friend name
+<%= friend.name %>
+
+- if you are following friend
+<% if user.friends.include?(friend) %>
+  - display location
+  <%= friend.location %>
+  - display 'following' button
+  <%= "Following" %>
+- if you are not following friend
+<% else %>
+  - if friend has geo enabled
+  <% if friend.geo == true %>
+    - display location
+    <%= friend.location %>
+    - display 'follow' button
+    <%= "Follow" %>
+  - if friend does not have geo enabled
+  <% else %>
+    - display 'can't get location data' or something
+    <%= "Location settings not enabled!" %>
+    - display 'invite' button
+    <%= "Invite" %>
+    <%= https://twitter.com/intent/tweet?text=[friend_twitter_name]%20Join%20me%20on%20this%20cool%20site!%20www.coolsite.com %>
+<% end %>
+
 
 <br>
+
+data needed
+- friend profile pic
