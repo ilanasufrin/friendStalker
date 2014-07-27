@@ -17,9 +17,9 @@ Set My Location (upon first user log-in)
   - if you are not following friend
   <% else %>
     Friend Location:
-    <% if friend.location %>
+    <% if friend.attrs[:geo_enabled] %>
       - display location
-      <%= friend.location %><br>
+      <%= friend.attrs[:geo_enabled] %><br>
       - display 'follow' button
       <%= link_to "Follow!" %><br>
     - if friend does not have geo enabled
@@ -33,6 +33,8 @@ Set My Location (upon first user log-in)
   <% end %>
 <% end %>
 
+<!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
+ client.friends.first.attrs[:geo_enabled] -->
 
 <br>
 <p>
