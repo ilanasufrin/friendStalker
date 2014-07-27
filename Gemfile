@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'geocoder'
 
 group :test, :development do
   gem "rspec-rails"

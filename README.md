@@ -35,6 +35,6 @@ Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
 
-[USER FLOW DIAGRAM]
-(https://docs.google.com/drawings/d/1YakapKhTv4nynDUZtLcikFjC5PVO01h7kVBYU3Ojoaw/edit)
+[USER FLOW DIAGRAM](https://docs.google.com/drawings/d/1YakapKhTv4nynDUZtLcikFjC5PVO01h7kVBYU3Ojoaw/edit)
 
+[WIREFRAME MOCKUPS](https://docs.google.com/drawings/d/1m1JpMo9LqQTQGK9pC1OBUGQb1ojDDLgjs6lmrZ_va14/edit)
