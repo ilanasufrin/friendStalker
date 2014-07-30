@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   # Ben's number : "+15038942566"
   # Ilana's number : "+14125088025"
-  # Emily's number : "+18456416151"
+  # Emily's number : "+18456416152"
 
   def notify(to, friend, location)
    account_sid = ENV['TWILIO_ACCOUNT_SID']
