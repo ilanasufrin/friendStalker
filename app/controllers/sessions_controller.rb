@@ -11,19 +11,26 @@ class SessionsController < ApplicationController
       config.access_token        = auth_hash['credentials']['token']
       config.access_token_secret = auth_hash['credentials']['secret']
     end
-   # binding.pry
-    geo_friends = client.friends.attrs[:users].select do |friend|
-      friend[:status][:geo] != nil || friend[:status][:coordinates] != nil
-    end
 
-    geo_friends.each do |geo_friend|
-       puts "#{geo_friend[:name]} last checked in at #{Geocoder.search(geo_friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']}!"
+    @friends = client.friends.attrs[:users].collect do |friend|
+      Friend.new.tap do |f|
+        f.twitter_id = friend[:id]
+        f.name = friend[:name]
+        f.geo_enabled = friend[:geo_enabled]
+        f.pic = friend[:profile_image_url]
+        if friend[:status][:geo]
+          f.location = Geocoder.search(friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']
+          f.latitude = friend[:status][:geo][:coordinates].first
+          f.longitude = friend[:status][:geo][:coordinates].last
+        else
+          f.location = friend[:location]
+        end
+      end
     end
-    
     @user = User.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid]) || User.create_with_omniauth(auth_hash)
     session[:current_user] = @user
     session[:user_id] = @user.id
-    redirect_to @user
+    render 'users/show'
   end
 
   def destroy

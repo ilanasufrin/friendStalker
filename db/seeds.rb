@@ -24,6 +24,14 @@ zambezia = Friend.create(
   facebook_id: 2,
   twitter_id: 2)
 
+jiminy = Friend.create(
+  name: "Jiminy Cricketpockets", 
+  location: nil, 
+  latitude: nil, 
+  longitude: nil, 
+  facebook_id: 3,
+  twitter_id: 3)
+
 florp = User.create(
   name: "Florp the Alien",
   location: "Florptown Stadium",
@@ -44,4 +52,8 @@ beef = User.create(
   phone: "111-000-4442"
   )
 
-
+friendship1 = Friendship.create(friend_id: 1, user_id: 1)
+friendship2 = Friendship.create(friend_id: 2, user_id: 1)
+friendship3 = Friendship.create(friend_id: 3, user_id: 1)
+friendship4 = Friendship.create(friend_id: 1, user_id: 2)
+friendship5 = Friendship.create(friend_id: 3, user_id: 2)
