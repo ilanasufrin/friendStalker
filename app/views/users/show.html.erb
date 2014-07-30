@@ -8,7 +8,7 @@ Set My Location (upon first user log-in)
 
 <!-- - iterate through friends -->
 <% @friends.each do |friend| %><p><p>
-  Picture: <%= "friend.profile_pic" %>
+  Picture: <%= friend.pic %>
   Name: <%= friend.name %><br>
 
   - if you are following friend: 
