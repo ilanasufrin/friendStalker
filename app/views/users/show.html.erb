@@ -1,5 +1,6 @@
-<h1>Users#show</h1>
+<h1>Friends</h1>
 
+<<<<<<< HEAD
 <h2>Dashboard / Profile Page</h2>
 MY LOCATION IS CURRENTLY:
 <%= @user.location %>
@@ -25,21 +26,19 @@ MY LOCATION IS CURRENTLY:
     - display 'following' button<br>
     <%= "Following" %><br>
   - if you are not following friend<br>
+=======
+<% @friends.each do |friend| %><br><br>
+  <img src="<%= friend.pic %>"><br>
+  <%= friend.name %><br>
+  <% if @user.friends.find(friend.id) %>
+    <%= "Following" %>
+>>>>>>> 097ad2023a52284387dc473794c3fc9d9f4cf9ed
   <% else %>
-    Friend Location:
-    <%# if friend.attrs.geo_enabled? %>
-      - display location
-      <%#= friend.attrs.geo_enabled? %><br>
-      - display 'follow' button
-      <%= link_to "Follow!" %><br>
-    - if friend does not have geo enabled<br>
-    <%# else %>
-      - display 'can't get location data' or something<br>
-      <%= "Location settings not enabled!" %><br>
-      - display 'invite' button
-      <%= link_to "Invite Friend!" %><br>
-      <%= "https://twitter.com/intent/tweet?text=[friend_twitter_name]%20Join%20me%20on%20this%20cool%20site!%20www.coolsite.com" %>
-      <%# end %>
+    <%= "Click to Follow!" %>
+  <% end %>
+  <br>
+  <% if friend.location %>
+    <%= friend.location %>
   <% end %>
 <% end %>
 
@@ -51,5 +50,3 @@ MY LOCATION IS CURRENTLY:
 
 <br>
 <p>
-data needed
-- friend profile pic
