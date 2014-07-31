@@ -4,17 +4,19 @@ MY LOCATION IS CURRENTLY:
 <%= @user.location %>
 
 <% @friends.each do |friend| %><br><br>
-
-  <img src="<%= friend.pic %>"><br>
-  <%= friend.name %><br>
-  <% if friend.id %>
-    <%= "Following" %>
-  <% else %>
-    <%= "Click to Follow!" %>
-  <% end %>
-  <br>
-  <% if friend.location %>
-    <%= friend.location %>
+  <% form_tag ("/users", method: "patch") do %>
+    <img src="<%= friend.pic %>"><br>
+  <%= label_tag(friend.name) %><br>
+    <% if friend.id %>
+      <%= "Following" %>
+    <% else %>
+      <%= "Click to Follow!" %>
+    <% end %>
+    <br>
+    <% if friend.location %>
+      <%= friend.location %>
+    <% end %>
+  <% submit_tag %>
   <% end %>
 <% end %>
 
