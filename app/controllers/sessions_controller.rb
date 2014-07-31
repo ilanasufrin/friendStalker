@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       config.access_token        = auth_hash['credentials']['token']
       config.access_token_secret = auth_hash['credentials']['secret']
     end
-
+# binding.pry
     @friends = client.friends.attrs[:users].collect do |friend|
       Friend.new.tap do |f|
         f.twitter_id = friend[:id]

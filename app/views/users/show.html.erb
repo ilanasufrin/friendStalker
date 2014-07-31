@@ -1,38 +1,14 @@
 <h1>Friends</h1>
 
-<<<<<<< HEAD
-<h2>Dashboard / Profile Page</h2>
 MY LOCATION IS CURRENTLY:
 <%= @user.location %>
 
-
-
-
-
-<%end %>
-
-
-
-
-<!-- - iterate through friends -->
-<% @friends.each do |friend| %><p><p>
-  Picture: <%= friend.pic %>
-  Name: <%= friend.name %><br>
-
-  - if you are following friend: 
-  <% if @user.friends.include?(friend) %><br>
-    Location: <br>
-    <%= friend.location %><br>
-    - display 'following' button<br>
-    <%= "Following" %><br>
-  - if you are not following friend<br>
-=======
 <% @friends.each do |friend| %><br><br>
+
   <img src="<%= friend.pic %>"><br>
   <%= friend.name %><br>
-  <% if @user.friends.find(friend.id) %>
+  <% if friend.id %>
     <%= "Following" %>
->>>>>>> 097ad2023a52284387dc473794c3fc9d9f4cf9ed
   <% else %>
     <%= "Click to Follow!" %>
   <% end %>
