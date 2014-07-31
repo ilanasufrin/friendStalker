@@ -4,6 +4,21 @@ MY LOCATION IS CURRENTLY:
 <%= @user.location if @user.location %>
 
 
+<%# form_tag ('/index', method: "patch") do %>
+  <% @friends.each do |friend| %><br><br>
+    <img src="<%= friend.pic %>"><br>
+  <%#= label_tag(friend.name) %><br>
+    <% if friend.id  %>
+      <%= "Following" %>
+    <% else %>
+      <%= "Click to Follow!" %>
+    <% end %>
+    <br>
+    <% if friend.location %>
+      <%= friend.location  %>
+    <% end %>
+  <% end %>
+<%# end %>
 
 <!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
  client.friends.first.attrs[:geo_enabled] -->
