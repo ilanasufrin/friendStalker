@@ -15,20 +15,22 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     session[:current_user] = @user
     client.friends.attrs[:users].each do |friend|
-      f = Friend.new
-      f.twitter_id = friend[:id] 
-      f.name = friend[:name]
-      f.geo_enabled = friend[:geo_enabled]
-      f.friendships.build(user_id: @user.id)
-      f.pic = friend[:profile_image_url]
-      if friend[:status][:geo]
-        f.location = Geocoder.search(friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']
-        f.latitude = friend[:status][:geo][:coordinates].first
-        f.longitude = friend[:status][:geo][:coordinates].last
-      else
-        f.location = friend[:location]
+      unless Friend.find_by(twitter_id: friend[:id]).friendships.find_by(user_id: @user.id)
+        f = Friend.new
+        f.twitter_id = friend[:id] 
+        f.name = friend[:name]
+        f.geo_enabled = friend[:geo_enabled]
+        f.friendships.build(user_id: @user.id)
+        f.pic = friend[:profile_image_url]
+        if friend[:status][:geo]
+          f.location = Geocoder.search(friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']
+          f.latitude = friend[:status][:geo][:coordinates].first
+          f.longitude = friend[:status][:geo][:coordinates].last
+        else
+          f.location = friend[:location]
+        end
+        f.save
       end
-      f.save
     end
     render 'users/show'
   end
