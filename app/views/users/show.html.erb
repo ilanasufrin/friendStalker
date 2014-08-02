@@ -3,22 +3,23 @@
 MY LOCATION IS CURRENTLY:
 <%= @user.location if @user.location %>
 
-<% @user.friends.each do |friend| %><br><br>
+<% @user.friends.each do |friend| %><br>
   <img src="<%= friend.pic %>"><br>
   <%= label_tag(friend.name) %><br>
   <%# if @user.friendships.find_by(friend_id: friend.id).stalking %>
-    <%#= "Following" %><br>
+    <%#= "Following" %>
   <%# else %>
-    <%#= button_to "Follow", user_path, :method => :patch %><br />
-    <% form_for(@user.friendships.find_by(friend_id: friend.id)) do |f| %>
-      <%= f.label "Stalk" %> <br />
-      <%= f.check_box :stalking %> <br />
-      <%= f.submit %><br>
-    <% end %>
-  <br>
-  <% if friend.location %>
+    <%#= button_to "Follow", user_path, :method => :patch %>
+     <% if friend.location %>
     <%= friend.location  %>
   <% end %>
+  <br>
+
+<%= label_tag "Stalk this User" %>
+<%= check_box_tag 'stalking_check', 'stalking_check' %>
+
+  <br>
+ 
 <% end %>
 
 <!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
