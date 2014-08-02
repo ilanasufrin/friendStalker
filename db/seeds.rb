@@ -13,7 +13,6 @@ bob = Friend.create(
   location: "Burger King", 
   latitude: 123, 
   longitude: 456, 
-  facebook_id: 1,
   twitter_id: 1)
 
 zambezia = Friend.create(
@@ -21,7 +20,6 @@ zambezia = Friend.create(
   location: "Hamburger County", 
   latitude: 777, 
   longitude: 999, 
-  facebook_id: 2,
   twitter_id: 2)
 
 jiminy = Friend.create(
@@ -29,27 +27,26 @@ jiminy = Friend.create(
   location: nil, 
   latitude: nil, 
   longitude: nil, 
-  facebook_id: 3,
   twitter_id: 3)
 
 florp = User.create(
   name: "Florp the Alien",
   location: "Florptown Stadium",
-  latitude: 1212121,
-  longitude: 54545454,
-  facebook_id: 11111,
+  lat: 1212121,
+  lon: 54545454,
   twitter_id: 22222,
-  phone: "131-444-0258"
+  phone: "131-444-0258",
+  ip_address: '68.185.243.30'
   )
 
 beef = User.create(
   name: "Beef Chesterton",
   location: "Pinkberry",
-  latitude: 987654321,
-  longitude: 123456789,
-  facebook_id: 987987987,
+  lat: 987654321,
+  lon: 123456789,
   twitter_id: 358358358,
-  phone: "111-000-4442"
+  phone: "111-000-4442",
+  ip_address: '134.209.108.153'
   )
 
 friendship1 = Friendship.create(friend_id: 1, user_id: 1)
