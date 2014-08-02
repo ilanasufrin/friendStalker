@@ -1,13 +1,13 @@
 $( document ).ready(function(){
-  $('#stalking_check').click(function(e){
+  $('.stalking_check').click(function(e){
     e.preventDefault();
-    alert("fasf");
+   // alert("fasf");
     var $form = $(this).closest('#stalking_check');
     $.ajax({
-      url: '/friendships',
-      type: 'POST',
+      url: "#",
+      type: 'GET',
       data: $form.serialize(),
-      dataType: 'script',
+      dataType: 'text',
       success: function(){
         // $form.find('input[id="email_email_address"]').val("");
         // console.log('Email sent!');
