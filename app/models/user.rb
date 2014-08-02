@@ -36,5 +36,7 @@ class User < ActiveRecord::Base
       #can change Friends table to Subscription once we have it
 # nearbys = Place.near("Omaha, NE", 50,
 #   :order => "distance")
+  end
 
+  
 end

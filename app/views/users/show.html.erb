@@ -10,10 +10,11 @@ MY LOCATION IS CURRENTLY:
     <%#= "Following" %><br>
   <%# else %>
     <%#= button_to "Follow", user_path, :method => :patch %><br />
-    <% form_for(@user.friendships.find_by(friend_id: friend.id)) do |f| %>
-      <%= f.label "Stalk" %> <br />
-      <%= f.check_box :stalking %> <br />
-      <%= f.submit %><br>
+    <%= form_for(@user) do |f| %>
+     <%=   f.fields_for :friendships do |r| %>
+      <%=   r.check_box  :stalking %>
+      <% end %>
+      <%= f.submit "Stalk this User" %><br>
     <% end %>
   <br>
   <% if friend.location %>
