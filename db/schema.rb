@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802150716) do
+ActiveRecord::Schema.define(version: 20140802172714) do
 
   create_table "friends", force: true do |t|
     t.string   "name"
@@ -30,14 +30,24 @@ ActiveRecord::Schema.define(version: 20140802150716) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "stalking"
   end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["friend_id"], name: "index_subscriptions_on_friend_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "location"
     t.float    "lat"
     t.float    "lon"
-    t.integer  "facebook_id"
     t.integer  "twitter_id"
     t.string   "phone"
     t.datetime "created_at"

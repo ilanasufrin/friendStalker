@@ -8,10 +8,11 @@ MY LOCATION IS CURRENTLY:
   <% @user.friends.each do |friend| %><br><br>
     <img src="<%= friend.pic %>"><br>
   <%= label_tag(friend.name) %><br>
-    <% if friend.id  %>
+    <% if @user.friendships.find_by(friend_id: friend.id).stalking %>
       <%= "Following" %>
     <% else %>
       <%= "Click to Follow!" %>
+      <%#= button_to "Follow"%>
     <% end %>
     <br>
     <% if friend.location %>
