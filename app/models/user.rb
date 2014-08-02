@@ -32,6 +32,4 @@ class User < ActiveRecord::Base
     :from => "+14129064747")
   end
 
-
 end
-

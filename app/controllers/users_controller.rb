@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user.location = @user.geocoded
+    # @user.location = @user.geocoded
   end
 
   def edit
