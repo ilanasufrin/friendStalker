@@ -21,6 +21,16 @@ MY LOCATION IS CURRENTLY:
 <%= check_box_tag 'stalking_check' %>
 </div>
   <br>
+
+    <%= form_for Friendship.new, :method => :post, :html => {:class => "stalking_check"} do |f| %>
+        <%= f.hidden_field :user_id, :value => @user.id %>
+        <%= f.hidden_field :friend_id, :value => friend.id %>
+        <%= label_tag "TRYING STUFF OUT" %>
+        <%= check_box_tag(:example) %>
+      <% end %>
+     
+
+
  
 <% end %>
 
