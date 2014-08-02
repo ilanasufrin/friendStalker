@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     lat = self.lat
     lng = self.lon
     Friend.near([lat, lng], 5).select do |friend|
-      binding.pry #can change Friends table to Subscription once we have it
+      #can change Friends table to Subscription once we have it
     end
   end
 
