@@ -14,9 +14,6 @@ class SessionsController < ApplicationController
     @user = User.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid]) || User.create_with_omniauth(auth_hash)
     session[:user_id] = @user.id
     session[:current_user] = @user
-    # @user.find_user_location
-
-# binding.pry
     client.friends.attrs[:users].each do |friend|
       f = Friend.new
       f.twitter_id = friend[:id] 
