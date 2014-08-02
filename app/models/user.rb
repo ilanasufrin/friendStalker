@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
 
+  accepts_nested_attributes_for :friendships
+  
+
   def self.create_with_omniauth(auth_hash)
     self.create(
       provider: auth_hash[:provider],
@@ -38,5 +41,5 @@ class User < ActiveRecord::Base
 #   :order => "distance")
   end
 
-  
+
 end

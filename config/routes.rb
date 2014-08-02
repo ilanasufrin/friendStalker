@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'sessions/create'
   get 'sessions/destroy'
-  resources :users
+  resources :users do
+    resources :friendships
+  end
 
   get '/auth/twitter'
   get '/auth/twitter/callback', to: 'sessions#create'
@@ -13,7 +15,9 @@ Rails.application.routes.draw do
 
   get '/friends', to: "users#friends"
 
-  post '/subscriptions', to: "subscriptions#create"
+  post '/friendships', to: "friendships#update"
+
+  # post '/friendships/update', to: "friendships#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
