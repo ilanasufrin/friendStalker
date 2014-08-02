@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
       uid: auth_hash[:uid],
       name: auth_hash[:info][:name]
       )
+
+
   end
 
   # Ben's number : "+15038942566"

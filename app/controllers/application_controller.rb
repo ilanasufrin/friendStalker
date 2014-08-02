@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authentication_required
 
+  def remote_ip
+    if request.remote_ip == '127.0.0.1'
+      # Hard coded remote address
+      '108.41.22.45'
+    else
+      request.remote_ip
+    end
+  end
+
+
   private
     def authentication_required
       redirect_to login_path if !logged_in?

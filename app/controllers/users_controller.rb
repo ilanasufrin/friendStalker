@@ -10,16 +10,24 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+     @user.location = Geocoder.address(remote_ip).split(', ')
+     @user.save
   end
 
 
   def show
     @user = User.find(params[:id])
+
     # @friends = @user.friends
   end
 
   def edit
   end
+
+ def create
+      location = Geocoder.address(remote_ip).split(', ')
+    end
+
 
 
   private
@@ -32,6 +40,8 @@ class UsersController < ApplicationController
       params.require(:user).permit([:location])
     end
 
+
+   
   
 end
 

@@ -4,6 +4,7 @@ MY LOCATION IS CURRENTLY:
 
 <%= @user.location if @user.location %>
 
+
 <%# form_tag ('/index', method: "patch") do %>
   <% @user.friends.each do |friend| %><br><br>
     <img src="<%= friend.pic %>"><br>
