@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
 
   end
 
+  geocoded_by :ip_address
+
+  after_validation :geocode
+
+  def ip_address
+    request.location.ip
+  end
+
   # Ben's number : "+15038942566"
   # Ilana's number : "+14125088025"
   # Emily's number : "+18456416152"
@@ -25,6 +33,5 @@ class User < ActiveRecord::Base
     :to => "#{to}",
     :from => "+14129064747")
   end
-
 
 end
