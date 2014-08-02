@@ -4,7 +4,7 @@ $( document ).ready(function(){
    // alert("fasf");
     var $form = $(this).closest('#stalking_check');
     $.ajax({
-      url: '/friendships',
+      url: "/users/:id",
       type: 'POST',
       data: $form.serialize(),
       dataType: 'script',
