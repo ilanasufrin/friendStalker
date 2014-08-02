@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
   skip_before_action :authentication_required, :only => [:index]
+  
 
+  # returns Geocoder::Result object
 
   def update
     @user = User.find(params[:id])
@@ -15,7 +17,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @friends = @user.friends
   end
 
   def edit
