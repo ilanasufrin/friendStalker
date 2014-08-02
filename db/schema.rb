@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730012038) do
+ActiveRecord::Schema.define(version: 20140802150716) do
 
   create_table "friends", force: true do |t|
     t.string   "name"
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "facebook_id"
     t.integer  "twitter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,8 +35,8 @@ ActiveRecord::Schema.define(version: 20140730012038) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "location"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.float    "lat"
+    t.float    "lon"
     t.integer  "facebook_id"
     t.integer  "twitter_id"
     t.string   "phone"
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140730012038) do
     t.datetime "updated_at"
     t.string   "uid"
     t.string   "provider"
+    t.string   "ip_address"
   end
 
 end

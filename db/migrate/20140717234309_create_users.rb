@@ -3,9 +3,8 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :location
-      t.float :latitude
-      t.float :longitude
-      t.integer :facebook_id
+      t.float :lat
+      t.float :lon
       t.integer :twitter_id
       t.string :phone
 
