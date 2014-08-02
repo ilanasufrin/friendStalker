@@ -4,10 +4,10 @@ $( document ).ready(function(){
    // alert("fasf");
     var $form = $(this).closest('#stalking_check');
     $.ajax({
-      url: "/users/:id",
-      type: 'POST',
+      url: "#",
+      type: 'GET',
       data: $form.serialize(),
-      dataType: 'script',
+      dataType: 'text',
       success: function(){
         // $form.find('input[id="email_email_address"]').val("");
         // console.log('Email sent!');
