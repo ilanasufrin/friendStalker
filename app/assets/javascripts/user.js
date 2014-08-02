@@ -1,7 +1,6 @@
 $( document ).ready(function(){
   $('.stalking_check').click(function(e){
     e.preventDefault();
-   // alert("fasf");
     var $form = $(this).closest('#stalking_check');
     $.ajax({
       url: "#",
@@ -14,7 +13,7 @@ $( document ).ready(function(){
         alert("YES");
       },
       failure: function(){
-        alert('NO');
+        alert('Something went wrong');
       }
     });
   });
