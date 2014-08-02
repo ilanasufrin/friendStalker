@@ -13,9 +13,8 @@ class SessionsController < ApplicationController
     end
 
     @user = User.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid]) || User.create_with_omniauth(auth_hash)
-    # @user.ip_address = request.location.data['ip']
-    @user.ip_address = '70.208.68.144'
-    binding.pry
+    @user.ip_address = request.location.data['ip']
+
     @user.location = Geocoder.search("#{@user.lat}, #{@user.lon}").first.data['formatted_address']
     @user.save
     session[:user_id] = @user.id
