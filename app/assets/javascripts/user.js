@@ -1,7 +1,7 @@
 $( document ).ready(function(){
-  $('#stalking_check').click(function(e){
+  $('.stalking_check').click(function(e){
     e.preventDefault();
-    alert("fasf");
+   // alert("fasf");
     var $form = $(this).closest('#stalking_check');
     $.ajax({
       url: '/friendships',
