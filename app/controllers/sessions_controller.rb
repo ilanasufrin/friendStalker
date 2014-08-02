@@ -21,19 +21,19 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     session[:current_user] = @user
 
-    client.friends.to_a.each do |friend|
+    client.friends.to_a.take(30).each do |friend|
       twitter_friend = Friend.find_by(twitter_id: friend.id)
       unless twitter_friend && twitter_friend.knows(@user)
         f = Friend.new
         f.twitter_id = friend.id
         f.name = friend.name
-        f.geo_enabled = friend.geo_enabled
+        f.geo_enabled = friend.geo_enabled?
         f.friendships.build(user_id: @user.id)
         f.pic = friend.profile_image_url.to_s
         if friend.status.geo?
           f.location = Geocoder.search(friend.status.geo[:coordinates].join(',')).first.data['formatted_address']
-          f.latitude = friend.status.geo[:coordinates].first
-          f.longitude = friend.status.geo[:coordinates].last
+          f.latitude = friend.status.geo.coordinates.first
+          f.longitude = friend.status.geo.coordinates.last
         else
           f.location = friend.location
         end
