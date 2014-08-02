@@ -34,9 +34,6 @@ class User < ActiveRecord::Base
     lng = self.lon
     Friend.near([lat, lng], 5) #.select do |friend|
       #can change Friends table to Subscription once we have it
-    #end
-  end
-
 # nearbys = Place.near("Omaha, NE", 50,
 #   :order => "distance")
 
