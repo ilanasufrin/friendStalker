@@ -15,7 +15,7 @@ MY LOCATION IS CURRENTLY:
 
  
   <img src="<%= friend.pic %>"><br>
-  <%= friend.location if friend.location %><br>
+ <h4> <%= friend.location if friend.location %><br> </h4>
   
   <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
     <% if friendship.stalking%>
