@@ -1,8 +1,9 @@
-<h1>Friends</h1>
+<h1>My Friends</h1>
 
-MY LOCATION IS CURRENTLY:
-<%= @user.location if @user.location %>
-
+<div class="jumbotron">
+<h2>MY LOCATION IS CURRENTLY:</h2>
+<h2><%= @user.location if @user.location %></h2>
+</div>
 
 
 <% @user.friends.each do |friend| %><br>
@@ -14,7 +15,7 @@ MY LOCATION IS CURRENTLY:
   <div class="panel-body">
 
  
-  <img src="<%= friend.pic %>"><br>
+  <img src="<%= friend.pic %>" style="height:200px;width:auto"><br>
  <h4> <%= friend.location if friend.location %><br> </h4>
   
   <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
