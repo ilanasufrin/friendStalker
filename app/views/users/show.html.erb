@@ -3,11 +3,20 @@
 MY LOCATION IS CURRENTLY:
 <%= @user.location if @user.location %>
 
+
+
 <% @user.friends.each do |friend| %><br>
-  <% friendship = Friendship.find_by(friend_id: friend.id) %>
+ <% friendship = Friendship.find_by(friend_id: friend.id) %>
+<div class="panel panel-info col-md-4" style="margin:5px">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= label_tag(friend.name) %></h3>
+  </div>
+  <div class="panel-body">
+
+ 
   <img src="<%= friend.pic %>"><br>
   <%= friend.location if friend.location %><br>
-  <%= label_tag(friend.name) %><br>
+  
   <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
     <% if friendship.stalking%>
       <%= label_tag 'stalking', 'Currently Stalking', class: 'stalking_check' %>
@@ -17,7 +26,12 @@ MY LOCATION IS CURRENTLY:
     <%= check_box_tag 'stalking', true, friendship.stalking, class: 'stalking' %><br>
     <%= submit_tag %>
   <% end %>
+  </div>
+  </div>
 <% end %>
+
+</div>
+
 
 <!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
  client.friends.first.attrs[:geo_enabled] -->
