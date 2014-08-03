@@ -1,7 +1,30 @@
-<% if session[:user_id] %>
-  <%= link_to "Friends", user_path(session[:user_id]) %> | 
-  <%= link_to 'My Profile', edit_user_path(session[:user_id]) %> | 
-  <%= link_to 'Log Out', logout_path %>  
-<% else %>
-  <%= link_to 'Log In with Twitter', auth_twitter_path %>
-<% end %>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Who's Around?", root_url, :class => "navbar-brand" %>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to 'Home', root_url %></li>
+            <% if session[:user_id] %>
+              <li><%= link_to 'Edit my Info', edit_user_path(session[:user_id]) %></li>
+              <li><%= link_to 'Friends', user_path(session[:user_id]) %></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to current_user.name, user_path(current_user) %></li>
+                <li><%= link_to "Log Out", logout_path %></li>
+            <% else %>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Log in with Twitter", "auth/twitter" %></li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>

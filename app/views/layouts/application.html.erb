@@ -2,7 +2,7 @@
 <html>
 <head>
   <%= render 'layouts/nav' %>
-  <title>FriendStalker</title>
+  <title>Who's Around?</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -16,8 +16,23 @@
 
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<%= render "layouts/nav" %>
+
+<div class="container content">
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
 <%= yield %>
+</div>
+
+
+<div class="footer">
+Built with &#9825; at the <a href="http://www.flatironschool.com" target="_blank">Flatiron School</a>
+<span style="float:left;padding-left:2px;">  &#169; Copyright 2014 MIT License</span>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update
+    if @user.update(update_user_loc_and_phone)
       redirect_to(@user)
     else
       render :edit
@@ -16,18 +16,20 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user= User.find(params[:id])
   end
 
   def create
-    location = Geocoder.address(remote_ip).split(', ')
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def update_user_location
-      params.require(:user).permit([:location])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def update_user_loc_and_phone
+    params.require(:user).permit([:location, :phone])
+  end
+     
 end

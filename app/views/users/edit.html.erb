@@ -1,8 +1,16 @@
-<h1>Edit Your Location</h1>
+<h2>Edit Your Location</h2>
 
 
 <%= form_for(@user) do |u|%>
 <%= u.hidden_field :user_id, :value => @user.id %>
 <%= u.text_field :location, :placeholder => "Enter Full Address" %>
-<%= u.submit "Save" %>
+<br>
+<% if @user.phone == nil %>
+  <h2>Add Your Phone Number</h2>
+  <%= u.telephone_field :phone, :placeholder => "Phone number" %>
+<% else  %>
+  <h3>Update Your Phone Number</h3>
+  <%= u.telephone_field :phone, :placeholder => @user.phone %>
+<% end %>
+  <%= u.submit "Save" %>
 <% end %>
