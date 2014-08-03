@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
         f.name = friend[:name]
         f.geo_enabled = friend[:geo_enabled?]
         f.friendships.build(user_id: @user.id)
-        f.pic = friend[:profile_image_url].to_s
+        f.pic = friend[:profile_image_url].to_s.gsub("_normal", "")
         if friend[:status][:geo?]
           f.location = Geocoder.search(friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']
           f.latitude = friend[:status][:geo][:coordinates].first
