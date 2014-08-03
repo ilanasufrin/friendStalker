@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     auth_token = ENV['TWILIO_AUTH_TOKEN']
     @client = Twilio::REST::Client.new account_sid, auth_token
     message = @client.account.messages.create(
-      :body => "Your friend #{friend} just checked in at #{location}. -THE FRIENDSTALKER",
+      :body => "Your friend #{friend} just checked in at #{location}! (via Who'sAround)",
       :to => "#{to}",
       :from => "+14129064747"
     )
@@ -35,18 +35,17 @@ class User < ActiveRecord::Base
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
-   friends_in_range = Friend.near([lat, lng], 2) #.select do |friend|
-      #can change Friends table to Subscriptions once we have it
+    friends_in_range = Friend.near([lat, lng], 2) #.select do |friend|
+    #can change Friends table to Subscriptions once we have it
   end
-  
 
   def send_text_updates
-      find_friends_within_range
-        if self.phone != nil || self.phone != ""
-          friends_in_range.each do |f|
-          self.notify(self.phone, f.name, f.location)
-          end
-        end
+    find_friends_within_range
+    if self.phone != nil || self.phone != ""
+      friends_in_range.each do |f|
+        self.notify(self.phone, f.name, f.location)
+      end
+    end
   end
 
 
