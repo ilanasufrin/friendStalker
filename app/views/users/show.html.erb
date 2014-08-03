@@ -10,12 +10,12 @@ MY LOCATION IS CURRENTLY:
   <%= label_tag(friend.name) %><br>
   <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
     <% if friendship.stalking%>
-      <%= label_tag 'stalking', 'Currently Stalking', class: 'stalking_check' %>
+      <%= label_tag 'stalking', 'Currently Following', class: 'stalking_check' %>
     <% else %>
-      <%= label_tag 'stalking', 'Stalk this Friend', class: 'stalking_check' %>
+      <%= label_tag 'stalking', 'Follow this Friend', class: 'stalking_check' %>
     <% end %>
     <%= check_box_tag 'stalking', true, friendship.stalking, class: 'stalking' %><br>
-    <%= submit_tag %>
+    <%= submit_tag 'Update Friend' %>
   <% end %>
 <% end %>
 
