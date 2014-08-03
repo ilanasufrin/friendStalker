@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    reset_session
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = auth_hash['extra']['access_token'].consumer.key
       config.consumer_secret     = auth_hash['extra']['access_token'].consumer.secret
