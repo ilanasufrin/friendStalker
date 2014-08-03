@@ -5,7 +5,12 @@
 <%= u.hidden_field :user_id, :value => @user.id %>
 <%= u.text_field :location, :placeholder => "Enter Full Address" %>
 <br>
-<h2>Add Your Phone Number</h2>
-<%= u.text_field :phone, :placeholder => "Phone number" %>
-<%= u.submit "Save" %>
+<% if @user.phone == nil %>
+  <h2>Add Your Phone Number</h2>
+  <%= u.telephone_field :phone, :placeholder => "Phone number" %>
+<% else  %>
+  <h3>Update Your Phone Number</h3>
+  <%= u.telephone_field :phone, :placeholder => @user.phone %>
+<% end %>
+  <%= u.submit "Save" %>
 <% end %>
