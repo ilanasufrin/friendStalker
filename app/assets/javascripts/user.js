@@ -1,11 +1,10 @@
 $( document ).ready(function(){
   $('.stalking').change(function(){
-    // debugger;
     var $stalkingText = $(this).prev();
-    if ($stalkingText.text() === 'Currently Stalking') {
-      $stalkingText.text('Stalk this Friend');
+    if ($stalkingText.text() === 'Currently Following') {
+      $stalkingText.text('Follow this Friend');
     } else {
-      $stalkingText.text('Currently Stalking');
+      $stalkingText.text('Currently Following');
     }
   });
 });
