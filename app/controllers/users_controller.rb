@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-     @user.location = Geocoder.address(remote_ip).split(', ')
-     @user.save
+     # @user.location = Geocoder.address(remote_ip).split(', ')
+     # @user.save
   end
 
   def show
@@ -23,9 +23,9 @@ class UsersController < ApplicationController
   def edit
   end
 
- def create
-      location = Geocoder.address(remote_ip).split(', ')
-    end
+  def create
+    location = Geocoder.address(remote_ip).split(', ').first
+  end
 
 
 
