@@ -4,7 +4,7 @@ class CreateFriends < ActiveRecord::Migration
       t.string :name
       t.string :location
       t.float :latitude
-      t.string :longitude
+      t.float :longitude
       t.integer :twitter_id
 
       t.timestamps

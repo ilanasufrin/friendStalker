@@ -34,7 +34,7 @@ florp = User.create(
   location: "Florptown Stadium",
   lat: 12,
   lon: 54,
-  twitter_id: 22222,
+  uid: 22222,
   phone: "131-444-0258",
   ip_address: '68.185.243.30'
   )
@@ -44,7 +44,7 @@ beef = User.create(
   location: "Pinkberry",
   lat: 87,
   lon: 12,
-  twitter_id: 358358358,
+  uid: 358358358,
   phone: "111-000-4442",
   ip_address: '134.209.108.153'
   )
