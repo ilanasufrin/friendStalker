@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :location
       t.float :lat
       t.float :lon
-      t.integer :twitter_id
       t.string :phone
 
       t.timestamps
