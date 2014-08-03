@@ -11,15 +11,15 @@
 bob = Friend.create(
   name: "Bob Testman", 
   location: "Burger King", 
-  latitude: 123, 
-  longitude: 456, 
+  latitude: -40, 
+  longitude: 75, 
   twitter_id: 1)
 
 zambezia = Friend.create(
   name: "Zambezia Holgrauf", 
   location: "Hamburger County", 
-  latitude: 777, 
-  longitude: 999, 
+  latitude: 0, 
+  longitude: 90, 
   twitter_id: 2)
 
 jiminy = Friend.create(
@@ -32,8 +32,8 @@ jiminy = Friend.create(
 florp = User.create(
   name: "Florp the Alien",
   location: "Florptown Stadium",
-  lat: 1212121,
-  lon: 54545454,
+  lat: 12,
+  lon: 54,
   twitter_id: 22222,
   phone: "131-444-0258",
   ip_address: '68.185.243.30'
@@ -42,8 +42,8 @@ florp = User.create(
 beef = User.create(
   name: "Beef Chesterton",
   location: "Pinkberry",
-  lat: 987654321,
-  lon: 123456789,
+  lat: 87,
+  lon: 12,
   twitter_id: 358358358,
   phone: "111-000-4442",
   ip_address: '134.209.108.153'

@@ -2,9 +2,8 @@ Rails.application.routes.draw do
 
   get 'sessions/create'
   get 'sessions/destroy'
-  resources :users do
-    resources :friendships
-  end
+  resources :users
+  resources :friendships
 
   get '/auth/twitter'
   get '/auth/twitter/callback', to: 'sessions#create'

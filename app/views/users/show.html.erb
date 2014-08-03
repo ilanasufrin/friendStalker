@@ -4,34 +4,19 @@ MY LOCATION IS CURRENTLY:
 <%= @user.location if @user.location %>
 
 <% @user.friends.each do |friend| %><br>
+  <% friendship = Friendship.find_by(friend_id: friend.id) %>
   <img src="<%= friend.pic %>"><br>
+  <%= friend.location if friend.location %><br>
   <%= label_tag(friend.name) %><br>
-  <%# if @user.friendships.find_by(friend_id: friend.id).stalking %>
-    <%#= "Following" %>
-  <%# else %>
-    <%#= button_to "Follow", user_path, :method => :patch %>
-     <% if friend.location %>
-    <%= friend.location  %>
+  <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
+    <% if friendship.stalking%>
+      <%= label_tag 'stalking', 'Currently Stalking', class: 'stalking_check' %>
+    <% else %>
+      <%= label_tag 'stalking', 'Stalk this Friend', class: 'stalking_check' %>
+    <% end %>
+    <%= check_box_tag 'stalking', true, friendship.stalking, class: 'stalking' %><br>
+    <%= submit_tag %>
   <% end %>
-  <br>
-
-
-<%= label_tag "Stalk this User" %>
-<div class="stalking_check">
-<%= check_box_tag 'stalking_check' %>
-</div>
-  <br>
-
-    <%= form_for Friendship.new, :method => :post, :html => {:class => "stalking_check"} do |f| %>
-        <%= f.hidden_field :user_id, :value => @user.id %>
-        <%= f.hidden_field :friend_id, :value => friend.id %>
-        <%= label_tag "TRYING STUFF OUT" %>
-        <%= check_box_tag(:example) %>
-      <% end %>
-     
-
-
- 
 <% end %>
 
 <!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
@@ -39,5 +24,3 @@ MY LOCATION IS CURRENTLY:
  
 <!-- CAN ALSO USE THIS
  client.friends.first.attrs.geo_enabled? -->
-
-
