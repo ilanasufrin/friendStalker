@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140802150716) do
 
   create_table "friends", force: true do |t|
     t.string   "name"
-    t.float    "location"
+    t.string   "location"
     t.float    "latitude"
     t.string   "longitude"
     t.integer  "twitter_id"
