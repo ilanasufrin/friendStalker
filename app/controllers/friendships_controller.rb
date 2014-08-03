@@ -10,6 +10,7 @@ class FriendshipsController < ApplicationController
     else
       flash.now[:error] = "Could not save changes."
     end
+    redirect_to @user
   end
 
   def create
