@@ -12,7 +12,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to 'Home', root_url %></li>
-            <% if session[:user_id] %>
+            <% if logged_in? %>
               <li><%= link_to 'Edit my Info', edit_user_path(session[:user_id]) %></li>
               <li><%= link_to 'Friends', user_path(session[:user_id]) %></li>
               </ul>

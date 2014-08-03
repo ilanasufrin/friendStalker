@@ -18,11 +18,13 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'geocoder'
 gem 'twilio-ruby'
+gem "whenever"
+
 
 group :test, :development do
   gem "rspec-rails"
   gem "capybara"
-  gem "whenever"
+
   gem "better_errors"
   gem "database_cleaner"
   gem 'sqlite3'
