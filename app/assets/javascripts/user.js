@@ -3,7 +3,7 @@ $( document ).ready(function(){
     e.preventDefault();
     var $form = $(this).closest('#stalking_check');
     $.ajax({
-      url: "#",
+      url: "users#show",
       type: 'GET',
       data: $form.serialize(),
       dataType: 'text',
