@@ -41,9 +41,8 @@ class User < ActiveRecord::Base
   end
 
   def send_text_updates
-    find_friends_within_range
     if self.phone != nil || self.phone != ""
-      friends_in_range.each do |f|
+      find_friends_within_range.each do |f|
         self.notify(self.phone, f.name, f.location)
       end
     end
