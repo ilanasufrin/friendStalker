@@ -3,38 +3,25 @@
 MY LOCATION IS CURRENTLY:
 <%= @user.location if @user.location %>
 
-
-
 <% @user.friends.each do |friend| %><br>
- <% friendship = Friendship.find_by(friend_id: friend.id) %>
-<div class="panel panel-info col-md-4" style="margin:5px">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= label_tag(friend.name) %></h3>
-  </div>
-  <div class="panel-body">
-
- 
-  <img src="<%= friend.pic %>"><br>
- <h4> <%= friend.location if friend.location %><br> </h4>
-  
-  <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
-    <% if friendship.stalking%>
-      <%= label_tag 'stalking', 'Currently Following', class: 'stalking_check' %>
-    <% else %>
-      <%= label_tag 'stalking', 'Follow this Friend', class: 'stalking_check' %>
-    <% end %>
-    <%= check_box_tag 'stalking', true, friendship.stalking, class: 'stalking' %><br>
-    <%= submit_tag 'Update Friend', hidden: true %>
-  <% end %>
-  </div>
-  </div>
+  <% friendship = Friendship.find_by(friend_id: friend.id) %>
+  <div class="panel panel-info col-md-4" style="margin:5px">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= label_tag(friend.name) %></h3>
+    </div> <!-- panel-heading -->
+    <div class="panel-body"> 
+      <img src="<%= friend.pic %>"style="height:200px;width:auto"><br>
+      <h4> <%= friend.location if friend.location %><br> </h4>
+      
+      <%= form_tag("/friendships/#{friendship.id}", method: :patch, remote: true) do %>
+        <% if friendship.stalking%>
+          <%= label_tag 'stalking', 'Currently Following', class: 'stalking_check' %>
+        <% else %>
+          <%= label_tag 'stalking', 'Follow this Friend', class: 'stalking_check' %>
+        <% end %>
+        <%= check_box_tag 'stalking', true, friendship.stalking, class: 'stalking' %><br>
+        <%= submit_tag 'Update Friend', hidden: true %>
+      <% end %>
+    </div> <!-- panel-body -->
+  </div> <!-- panel-info -->
 <% end %>
-
-</div>
-
-
-<!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
- client.friends.first.attrs[:geo_enabled] -->
- 
-<!-- CAN ALSO USE THIS
- client.friends.first.attrs.geo_enabled? -->
