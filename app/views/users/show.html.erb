@@ -1,14 +1,13 @@
-<h1>My Friends</h1>
-
 <div class="jumbotron">
 <h2>MY LOCATION IS CURRENTLY:</h2>
 <h2><%= @user.location if @user.location %></h2>
 </div>
 
+<div class="friends-container">
 
 <% @user.friends.each do |friend| %><br>
  <% friendship = Friendship.find_by(friend_id: friend.id) %>
-<div class="panel panel-info col-md-4" style="margin:5px">
+<div class="panel panel-info col-md-3" style="margin:5px">
   <div class="panel-heading">
     <h3 class="panel-title"><%= label_tag(friend.name) %></h3>
   </div>
@@ -32,7 +31,7 @@
 <% end %>
 
 </div>
-
+</div>
 
 <!-- HERE IS HOW WE GOT GEO ENABLED FROM THE FRIENDS HASH IN THE RAILS CONSOLE:
  client.friends.first.attrs[:geo_enabled] -->
