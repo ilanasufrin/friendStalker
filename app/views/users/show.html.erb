@@ -1,7 +1,8 @@
 <h1>My Friends</h1>
 <div class="jumbotron">
-  <h2>MY LOCATION IS CURRENTLY:</h2>
-  <h2><%= @user.location if @user.location %></h2>
+  <h3>My location: <%= @user.location ? @user.location : link_to("Set my location", edit_user_path) %></h3>
+  <h3>My phone number: <%= @user.phone ? @user.phone : link_to("Set my phone number", edit_user_path) %></h3>
+
 </div> <!-- jumbotron -->
 
 
