@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :friendships
   
-
   def self.create_with_omniauth(auth_hash)
     self.create(
       provider: auth_hash[:provider],
@@ -32,11 +31,13 @@ class User < ActiveRecord::Base
     )
   end
 
+  all_texts_ever = []
+
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
     friends_in_range = Friend.near([lat, lng], 100).select do |friend|
-      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true}
+      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !!scan_text_history(friend)}
     end
   end
 
@@ -44,6 +45,10 @@ class User < ActiveRecord::Base
     if self.phone != nil || self.phone != ""
       find_friends_within_range.each {|f| self.notify(self.phone, f.name, f.location) }
     end
+  end
+
+  def scan_text_history(f)
+    all_texts_ever << [self.phone, f.name, f.location] if !all_texts_ever.include?([self.phone, f.name, f.location])
   end
 
 end

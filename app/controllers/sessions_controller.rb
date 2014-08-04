@@ -22,24 +22,36 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     session[:current_user] = @user
 
+    old_friendships = @user.friendships
+    new_friendships = []
     client.friends.attrs[:users].each do |friend|
-      twitter_friend = Friend.find_by(twitter_id: friend[:id])
-      unless twitter_friend && twitter_friend.knows(@user)
+      f = Friend.find_by(twitter_id: friend[:id])
+      unless f
         f = Friend.new
         f.twitter_id = friend[:id]
-        f.name = friend[:name]
-        f.geo_enabled = friend[:geo_enabled?]
-        f.friendships.build(user_id: @user.id)
-        f.pic = friend[:profile_image_url].to_s.gsub("_normal", "")
-        if friend[:status][:geo?]
-          f.location = Geocoder.search(friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']
-          f.latitude = friend[:status][:geo][:coordinates].first
-          f.longitude = friend[:status][:geo][:coordinates].last
-        else
-          f.location = friend[:location]
-        end
         f.save
       end
+      unless f.knows(@user)
+        f.friendships.build(user_id: @user.id)
+      end
+      f.name = friend[:name]
+      f.geo_enabled = friend[:geo_enabled?]
+      f.pic = friend[:profile_image_url].to_s.gsub("_normal", "")
+      if friend[:status][:geo?]
+        f.location = Geocoder.search(friend[:status][:geo][:coordinates].join(',')).first.data['formatted_address']
+        f.latitude = friend[:status][:geo][:coordinates].first
+        f.longitude = friend[:status][:geo][:coordinates].last
+      else
+        f.location = friend[:location]
+      end
+      f.save
+      new_friendships << f.friendships.find_by(user_id: @user.id)
+    end
+
+    @user.friendships.each do |friendship|
+      friendship.destroy if !new_friendships.include?(friendship)
+      friend = old_friendships.find_by(friend_id: friendship.friend_id)
+      friendship.stalking = friend.stalking if friend
     end
     render 'users/show'
   end
