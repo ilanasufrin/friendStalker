@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140802150716) do
     t.string   "location"
     t.float    "lat"
     t.float    "lon"
+    t.integer  "twitter_id"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
