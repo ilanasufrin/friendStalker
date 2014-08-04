@@ -25,7 +25,7 @@
       <%= label_tag 'stalking', 'Follow this Friend', class: 'stalking_check' %>
     <% end %>
     <%= check_box_tag 'stalking', true, friendship.stalking, class: 'stalking' %><br>
-    <%= submit_tag 'Update Friend' %>
+    <%= submit_tag 'Update Friend', hidden: true %>
   <% end %>
   </div>
   </div>
