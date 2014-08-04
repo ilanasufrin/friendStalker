@@ -35,19 +35,15 @@ class User < ActiveRecord::Base
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
-    friends_in_range = Friend.near([lat, lng], 2).select do |friend|
+    friends_in_range = Friend.near([lat, lng], 100).select do |friend|
       friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true}
     end
   end
 
   def send_text_updates
     if self.phone != nil || self.phone != ""
-      find_friends_within_range.each do |f|
-        self.notify(self.phone, f.name, f.location)
-      end
+      find_friends_within_range.each {|f| self.notify(self.phone, f.name, f.location) }
     end
   end
-
-
 
 end

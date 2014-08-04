@@ -1,7 +1,9 @@
-<h1>Friends</h1>
+<h1>My Friends</h1>
+<div class="jumbotron">
+  <h2>MY LOCATION IS CURRENTLY:</h2>
+  <h2><%= @user.location if @user.location %></h2>
+</div> <!-- jumbotron -->
 
-MY LOCATION IS CURRENTLY:
-<%= @user.location if @user.location %>
 
 <% @user.friends.each do |friend| %><br>
   <% friendship = Friendship.find_by(friend_id: friend.id) %>
