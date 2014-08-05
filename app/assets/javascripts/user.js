@@ -8,4 +8,15 @@ $( document ).ready(function(){
     }
     $('input:submit').trigger('click');
   });
+
+
+  $('.jcarousel').jcarousel();
+    $('.jcarousel').jcarousel('scroll', '+=2');
+
 });
+
+// $(function() {
+//     $('.jcarousel').jcarousel();
+//     $('.jcarousel').jcarousel('scroll', '+=2');
+// });
+
