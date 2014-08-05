@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802150716) do
+ActiveRecord::Schema.define(version: 20140805011332) do
 
   create_table "friends", force: true do |t|
     t.string   "name"
@@ -22,13 +22,22 @@ ActiveRecord::Schema.define(version: 20140802150716) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "pic"
-    t.boolean  "geo_enabled"
   end
 
   create_table "friendships", force: true do |t|
     t.integer  "friend_id"
     t.integer  "user_id"
     t.boolean  "stalking",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "texts", force: true do |t|
+    t.integer  "u_id"
+    t.string   "u_phone"
+    t.integer  "f_id"
+    t.string   "f_name"
+    t.string   "f_loc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

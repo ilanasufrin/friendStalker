@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   
   has_many :friendships
   has_many :friends, through: :friendships
+  has_many :texts, foreign_key: :u_id
+  has_many :fs, through: :texts
 
   accepts_nested_attributes_for :friendships
   
@@ -31,25 +33,29 @@ class User < ActiveRecord::Base
     )
   end
 
-  all_texts_ever = []
-
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
-    friends_in_range = Friend.near([lat, lng], 100).select do |friend|
-      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !!scan_text_history(friend)}
-      puts friends_in_range
+    friends_in_range = Friend.near([lat, lng], 5).select do |friend|
+      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !texts_contain_status(friend)}
     end
   end
 
   def send_text_updates
     if self.phone != nil || self.phone != ""
-      find_friends_within_range.each {|f| self.notify(self.phone, f.name, f.location) }
+      find_friends_within_range.each do |f|
+        self.notify(self.phone, f.name, f.location)
+      end
     end
   end
 
-  def scan_text_history(f)
-    all_texts_ever << [self.phone, f.name, f.location] if !all_texts_ever.include?([self.phone, f.name, f.location])
+  def texts_contain_status(f)
+    if self.texts.find_by(u_phone: self.phone, f_name: f.name, f_loc: f.location)
+      return true
+    else
+      self.texts.create(u_id: self.id, u_phone: self.phone, f_id: f.id, f_name: f.name, f_loc: f.location)
+      return false
+    end
   end
 
 end
