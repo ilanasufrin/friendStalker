@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
-  skip_before_action :authentication_required, :only => [:index]
+  skip_before_action :authentication_required, :only => [:index, :about]
 
   def update
     @user = User.find(params[:id])

@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20140805011332) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "pic"
-    t.boolean  "geo_enabled"
   end
 
   create_table "friendships", force: true do |t|
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(version: 20140805011332) do
     t.string   "location"
     t.float    "lat"
     t.float    "lon"
-    t.integer  "twitter_id"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
