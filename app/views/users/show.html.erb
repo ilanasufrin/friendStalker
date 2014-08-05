@@ -5,9 +5,18 @@
   <h3>My phone number: <%= @user.phone ? @user.phone : link_to("Set my phone number", edit_user_path) %></h3>
 </div> <!-- jumbotron -->
 
-<h2 class="my-friends-heading"><%= image_tag('/assets/arrow_g.png', size: '45') %> My Friends <%= image_tag('/assets/arrow_g.png', size: '45', :class => 'flip-horizontal') %><br></h2>
+<h2 class="my-friends-heading">
+  <!-- <a href="javascript:void(0);" class="slide-left"> -->
+    <%= image_tag('/assets/arrow_g.png', size: '45', :id => "slide-left") %> 
+  <!-- </a> -->
+   My Friends 
+  <!-- <a href="javascript:void(0);" class="slide-right"> -->
+    <%= image_tag('/assets/arrow_g.png', size: '45', :class => 'flip-horizontal', :id => "slide-right") %>
+  <!-- </a> -->
+  <br>
+</h2>
 
-<div class="friends-container jcarousel">
+<div class="friends-container">
 
 <% @user.friends.each do |friend| %><br>
   <% friendship = Friendship.find_by(friend_id: friend.id) %>

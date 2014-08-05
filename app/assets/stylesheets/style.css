@@ -40,7 +40,11 @@ body {
 .friends-container {
     display: flex;
     align-items: baseline;
+    /*overflow-x: scroll;*/
+    /*position: relative;*/
     overflow-x: scroll;
+ /*   width:1000px;
+    height:400px;*/
 }
 
 .panel-info {
