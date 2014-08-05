@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   
   has_many :friendships
   has_many :friends, through: :friendships
+  has_many :texts, foreign_key: :u_id
+  has_many :fs, through: :texts
 
   accepts_nested_attributes_for :friendships
   
@@ -34,7 +36,7 @@ class User < ActiveRecord::Base
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
-    friends_in_range = Friend.near([lat, lng], 100).select do |friend|
+    friends_in_range = Friend.near([lat, lng], 5).select do |friend|
       friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !texts_contain_status(friend)}
     end
   end
@@ -42,18 +44,16 @@ class User < ActiveRecord::Base
   def send_text_updates
     if self.phone != nil || self.phone != ""
       find_friends_within_range.each do |f|
-        binding.pry
-        # self.notify(self.phone, f.name, f.location)
+        self.notify(self.phone, f.name, f.location)
       end
     end
   end
 
   def texts_contain_status(f)
-    @all_texts_ever ||= []
-    if @all_texts_ever.include?([self.phone, f.name, f.location])
+    if self.texts.find_by(u_phone: self.phone, f_name: f.name, f_loc: f.location)
       return true
     else
-      @all_texts_ever << [self.phone, f.name, f.location]
+      self.texts.create(u_id: self.id, u_phone: self.phone, f_id: f.id, f_name: f.name, f_loc: f.location)
       return false
     end
   end
