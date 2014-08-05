@@ -1,4 +1,4 @@
-
+<div class="users-show-page-content">
 
 <div class="jumbotron">
   <h3>My location: <%= @user.location ? @user.location : link_to("Set my location", edit_user_path) %></h3>
@@ -11,7 +11,7 @@
 
 <% @user.friends.each do |friend| %><br>
   <% friendship = Friendship.find_by(friend_id: friend.id) %>
-  <div class="panel panel-info col-md-4" style="margin:5px">
+  <div class="panel panel-info col-md-4" style="margin:5px;border-radius:15px">
     <div class="panel-heading">
       <h3 class="panel-title"><%= label_tag(friend.name) %></h3>
     </div> <!-- panel-heading -->
@@ -32,3 +32,5 @@
   </div> <!-- panel-info -->
 <% end %>
 </div> <!-- friends-container -->
+
+</div> <!-- users-show-page-content -->

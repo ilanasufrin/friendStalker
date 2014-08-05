@@ -19,7 +19,8 @@ body {
 }
 
 .content {
-  background-color: #fff;
+  /*background-color: #fff;*/
+  /*background:url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-3.jpg') no-repeat center center fixed; */
   border-radius: 6px;
   min-height: 200px;
   padding-top: 10px;
@@ -72,6 +73,22 @@ padding-right: 250px;
 
 .users-edit-page-content {
 text-align: center;
+background-color: white;
+padding-top:25px;
+padding-bottom:25px;
+border-radius: 15px;
+}
+
+
+.users-index-page-content {
+text-align: center;
+border-radius: 15px;
+background-color:white;
+}
+
+.users-show-page-content {
+background-color:white;
+border-radius: 15px;
 }
 
 
