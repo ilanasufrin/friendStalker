@@ -11,7 +11,7 @@
 }
 
 body {
-  background:url() no-repeat center center fixed; 
+  background:url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-3.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -19,11 +19,88 @@ body {
 }
 
 .content {
-  background-color: #fff;
+  /*background-color: #fff;*/
+  /*background:url('http://www.freebiesgallery.com/wp-content/uploads/2013/08/light-blue-background-3.jpg') no-repeat center center fixed; */
   border-radius: 6px;
   min-height: 200px;
   padding-top: 10px;
   margin-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   width: 80%;
 }
+
+.jumbotron {
+  height:150px;
+  width:auto;
+  margin-bottom: 5px;
+  padding:10px;
+}
+
+
+.friends-container {
+    display: flex;
+    align-items: baseline;
+    overflow-x: scroll;
+}
+
+.panel-info {
+padding-right: 275px;
+}
+
+.panel-heading {
+  width:200px;
+}
+
+.panel-body {
+  width:300px;
+  height:315px;
+}
+
+.panel-body h4 {
+  width:250px;
+}
+
+.my-friends-heading {
+  text-align:center;
+  border:2px solid black;
+  background-color:lightblue;
+}
+
+.jumbotron h3 {
+  text-align: center;
+}
+
+
+.users-edit-page-content {
+text-align: center;
+background-color: white;
+padding-top:25px;
+padding-bottom:25px;
+border-radius: 15px;
+}
+
+
+.users-index-page-content {
+text-align: center;
+border-radius: 15px;
+/*background-color:white;*/
+}
+
+.users-show-page-content {
+background-color:white;
+border-radius: 15px;
+}
+
+.logo-image {
+-webkit-box-shadow: 0px 0px 22px 13px rgba(50, 50, 50, 0.51);
+-moz-box-shadow: 0px 0px 22px 13px rgba(50, 50, 50, 0.51);
+box-shadow: 0px 0px 22px 13px rgba(50, 50, 50, 0.51);
+border-radius: 100%;
+/*outline: 1px groove #4DDBFF;*/
+}
+
+
+
+
+
+

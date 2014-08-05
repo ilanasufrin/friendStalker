@@ -8,4 +8,11 @@ $( document ).ready(function(){
     }
     $('input:submit').trigger('click');
   });
+
+
+ 
+
 });
+
+
+

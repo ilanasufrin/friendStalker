@@ -1,9 +1,13 @@
+<div style="height:100px"><!-- This is literally just to take up styling space --></div>
+
+<div class="users-edit-page-content">
+
 <h2>Edit Your Location</h2>
 
 
 <%= form_for(@user) do |u|%>
 <%= u.hidden_field :user_id, :value => @user.id %>
-<%= u.text_field :location, :placeholder => "Enter Full Address" %>
+<%= u.text_area :location, :cols => "50", :rows => "3", :placeholder => "Enter Full Address" %>
 <br>
 <% if @user.phone == nil %>
   <h2>Add Your Phone Number</h2>
@@ -14,3 +18,6 @@
 <% end %>
   <%= u.submit "Save" %>
 <% end %>
+
+</div> <!-- users-edit-page-content -->
+

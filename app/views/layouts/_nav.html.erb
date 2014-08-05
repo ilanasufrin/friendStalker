@@ -13,16 +13,18 @@
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to 'Home', root_url %></li>
             <% if logged_in? %>
-              <li><%= link_to 'Edit my Info', edit_user_path(session[:user_id]) %></li>
+              <li><%= link_to 'Profile', edit_user_path(session[:user_id]) %></li>
               <li><%= link_to 'Friends', user_path(session[:user_id]) %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "About", "/about" %></li>
                 <li><%= link_to current_user.name, user_path(current_user) %></li>
                 <li><%= link_to "Log Out", logout_path %></li>
             <% else %>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Log in with Twitter", "auth/twitter" %></li>
+                <li><%= link_to "About", "users/about" %></li>
+                <li><%= link_to "Log in with Twitter", "auth/twitter" %></li>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->
