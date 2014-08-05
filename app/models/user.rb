@@ -37,14 +37,9 @@ class User < ActiveRecord::Base
     lat = self.lat
     lng = self.lon
     friends_in_range = Friend.near([lat, lng], 100).select do |friend|
-<<<<<<< HEAD
-      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true}
-      puts friends_in_range
-=======
       friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !!scan_text_history(friend)}
->>>>>>> 3e3ca31ee83fb7c57b907a1c081580791a411392
+      puts friends_in_range
     end
-
   end
 
   def send_text_updates
