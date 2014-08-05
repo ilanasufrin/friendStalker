@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
-    friends_in_range = Friend.near([lat, lng], 5).select do |friend|
+    friends_in_range = Friend.near([lat, lng], 10).select do |friend|
       friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !texts_contain_status(friend)}
     end
   end
@@ -50,10 +50,10 @@ class User < ActiveRecord::Base
   end
 
   def texts_contain_status(f)
-    if self.texts.find_by(u_phone: self.phone, f_name: f.name, f_loc: f.location)
+    if self.texts.find_by(u_phone: self.phone, f_update: f.updated_at)
       return true
     else
-      self.texts.create(u_id: self.id, u_phone: self.phone, f_id: f.id, f_name: f.name, f_loc: f.location)
+      self.texts.create(u_id: self.id, u_phone: self.phone, f_id: f.id, f_update: f.updated_at)
       return false
     end
   end

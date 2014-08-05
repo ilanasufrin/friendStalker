@@ -1,8 +1,8 @@
 <div class="users-show-page-content">
 
 <div class="jumbotron">
-  <h3>My location: <%= @user.location ? @user.location : link_to("Set my location", edit_user_path) %></h3>
-  <h3>My phone number: <%= @user.phone ? @user.phone : link_to("Set my phone number", edit_user_path) %></h3>
+  <h3>My location: <%= @user.location ? @user.location : link_to("Set my location", edit_user_path(@user)) %></h3>
+  <h3>My phone number: <%= @user.phone ? @user.phone : link_to("Set my phone number", edit_user_path(@user)) %></h3>
 </div> <!-- jumbotron -->
 
 <h2 class="my-friends-heading">
