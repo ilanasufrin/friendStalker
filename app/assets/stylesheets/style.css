@@ -52,13 +52,23 @@ padding-right: 250px;
 
 .panel-body {
   width:250px;
-  height:350px;
+  height:315px;
 }
 
 .panel-body h4 {
-  width:100px;
-
+  width:200px;
 }
+
+.my-friends-heading {
+  text-align:center;
+  border:2px solid black;
+  background-color:lightblue;
+}
+
+.jumbotron h3 {
+  text-align: center;
+}
+
 
 
 

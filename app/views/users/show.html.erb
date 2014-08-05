@@ -1,12 +1,13 @@
+
+
 <div class="jumbotron">
   <h3>My location: <%= @user.location ? @user.location : link_to("Set my location", edit_user_path) %></h3>
   <h3>My phone number: <%= @user.phone ? @user.phone : link_to("Set my phone number", edit_user_path) %></h3>
 </div> <!-- jumbotron -->
 
+<h2 class="my-friends-heading">My Friends</h2>
+
 <div class="friends-container">
-
-
-
 
 <% @user.friends.each do |friend| %><br>
   <% friendship = Friendship.find_by(friend_id: friend.id) %>
