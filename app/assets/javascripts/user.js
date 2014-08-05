@@ -9,6 +9,8 @@ $( document ).ready(function(){
     $('input:submit').trigger('click');
   });
 
+
+
 //We did not manage to implement this
   // $('.slide-right').click(function() {
   //   $('.friends-container').animate({ "right": "+=200px" }, "fast" );
