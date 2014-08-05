@@ -22,7 +22,7 @@
   <% friendship = Friendship.find_by(friend_id: friend.id) %>
   <div class="panel panel-info col-md-4" style="margin:5px;border-radius:15px">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= label_tag(friend.name) %></h3>
+      <h3 class="panel-title label"><%= label_tag friend.name %></h3>
     </div> <!-- panel-heading -->
     <div class="panel-body"> 
       <img src="<%= friend.pic %>"style="height:200px;width:auto"><br>

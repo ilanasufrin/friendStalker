@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20140805011332) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "pic"
-    t.boolean  "geo_enabled"
   end
 
   create_table "friendships", force: true do |t|

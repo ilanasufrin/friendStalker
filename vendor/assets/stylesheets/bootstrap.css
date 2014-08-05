@@ -6212,3 +6212,5 @@ button.close {
     -ms-filter: fliph; /*IE*/
     filter: fliph; /*IE*/
 }
+
+.label { text-transform: capitalize; }
