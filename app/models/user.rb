@@ -31,24 +31,31 @@ class User < ActiveRecord::Base
     )
   end
 
-  all_texts_ever = []
-
   def find_friends_within_range
     lat = self.lat
     lng = self.lon
     friends_in_range = Friend.near([lat, lng], 100).select do |friend|
-      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !!scan_text_history(friend)}
+      friend if friend.friendships.detect {|f| f.user_id == self.id && f.stalking == true && !texts_contain_status(friend)}
     end
   end
 
   def send_text_updates
     if self.phone != nil || self.phone != ""
-      find_friends_within_range.each {|f| self.notify(self.phone, f.name, f.location) }
+      find_friends_within_range.each do |f|
+        binding.pry
+        # self.notify(self.phone, f.name, f.location)
+      end
     end
   end
 
-  def scan_text_history(f)
-    all_texts_ever << [self.phone, f.name, f.location] if !all_texts_ever.include?([self.phone, f.name, f.location])
+  def texts_contain_status(f)
+    @all_texts_ever ||= []
+    if @all_texts_ever.include?([self.phone, f.name, f.location])
+      return true
+    else
+      @all_texts_ever << [self.phone, f.name, f.location]
+      return false
+    end
   end
 
 end
