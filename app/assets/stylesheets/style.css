@@ -44,7 +44,7 @@ body {
 }
 
 .panel-info {
-padding-right: 250px;
+padding-right: 275px;
 }
 
 .panel-heading {
@@ -52,12 +52,12 @@ padding-right: 250px;
 }
 
 .panel-body {
-  width:250px;
+  width:300px;
   height:315px;
 }
 
 .panel-body h4 {
-  width:200px;
+  width:250px;
 }
 
 .my-friends-heading {
