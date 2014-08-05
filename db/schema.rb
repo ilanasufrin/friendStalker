@@ -36,8 +36,7 @@ ActiveRecord::Schema.define(version: 20140805011332) do
     t.integer  "u_id"
     t.string   "u_phone"
     t.integer  "f_id"
-    t.string   "f_name"
-    t.string   "f_loc"
+    t.string   "f_update"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,7 +46,6 @@ ActiveRecord::Schema.define(version: 20140805011332) do
     t.string   "location"
     t.float    "lat"
     t.float    "lon"
-    t.integer  "twitter_id"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
