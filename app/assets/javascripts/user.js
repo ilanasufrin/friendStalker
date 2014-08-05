@@ -10,13 +10,9 @@ $( document ).ready(function(){
   });
 
 
-  $('.jcarousel').jcarousel();
-    $('.jcarousel').jcarousel('scroll', '+=2');
+ 
 
 });
 
-// $(function() {
-//     $('.jcarousel').jcarousel();
-//     $('.jcarousel').jcarousel('scroll', '+=2');
-// });
+
 
