@@ -6,5 +6,6 @@ $( document ).ready(function(){
     } else {
       $stalkingText.text('Currently Following');
     }
+    $('input:submit').trigger('click');
   });
 });
