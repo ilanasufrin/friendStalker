@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   post '/friendships', to: "friendships#update"
 
+  get '/about', to: "users#about"
+
   # post '/friendships/update', to: "friendships#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
